@@ -27,24 +27,43 @@ const CV_SCHEMA = {
   languages: "array of { name: string, proficiency: string optional }",
 };
 
-export async function textFromResume(filePath, mimetype) {
-  const buffer = await fs.readFile(filePath);
-  if (mimetype === "application/pdf" || filePath.endsWith(".pdf")) {
+export async function textFromResume(input, mimetype = "", filename = "") {
+  let buffer;
+  if (Buffer.isBuffer(input)) {
+    buffer = input;
+  } else if (typeof input === "string") {
+    buffer = await fs.readFile(input);
+    filename = filename || input;
+  } else {
+    throw new Error("Invalid input to textFromResume");
+  }
+
+  const fn = (filename || "").toLowerCase();
+  if (mimetype === "application/pdf" || fn.endsWith(".pdf")) {
     const data = await pdf(buffer);
     return data.text;
   }
   if (
     mimetype ===
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
-    filePath.endsWith(".docx")
+    fn.endsWith(".docx")
   ) {
     const result = await mammoth.extractRawText({ buffer });
     return result.value;
   }
-  if (mimetype === "text/plain" || filePath.endsWith(".txt")) {
+  if (mimetype === "text/plain" || fn.endsWith(".txt")) {
     return buffer.toString("utf-8");
   }
-  throw new Error("Unsupported file type. Use PDF, DOCX, or TXT.");
+
+  try {
+    const data = await pdf(buffer);
+    if (data.text) return data.text;
+  } catch {}
+  try {
+    const result = await mammoth.extractRawText({ buffer });
+    if (result.value) return result.value;
+  } catch {}
+  return buffer.toString("utf-8");
 }
 
 function guessSocials(text) {
@@ -571,8 +590,8 @@ function normalize(data) {
   };
 }
 
-export async function extractCvData(filePath, mimetype) {
-  const text = await textFromResume(filePath, mimetype);
+export async function extractCvData(input, mimetype = "", filename = "") {
+  const text = await textFromResume(input, mimetype, filename);
   if (!text?.trim()) {
     throw new Error("Could not read text from resume.");
   }

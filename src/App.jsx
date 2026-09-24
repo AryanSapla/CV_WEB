@@ -62,7 +62,16 @@ export default function App() {
 
     try {
       const res = await fetch("/api/extract", { method: "POST", body: form });
-      const json = await res.json();
+      const responseText = await res.text();
+      let json;
+      try {
+        json = JSON.parse(responseText);
+      } catch (parseErr) {
+        throw new Error(
+          `Server returned invalid response (${res.status}). If on Vercel, please re-deploy so the serverless function takes effect.`
+        );
+      }
+
       if (!res.ok) throw new Error(json.error || "Upload failed");
 
       setResult(json);
