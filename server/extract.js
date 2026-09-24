@@ -27,6 +27,27 @@ const CV_SCHEMA = {
   languages: "array of { name: string, proficiency: string optional }",
 };
 
+function parseRawPdfText(buffer) {
+  try {
+    const rawStr = buffer.toString("binary");
+    const matches = [];
+    const regex = /\(([^()\\]|\\[\s\S])*\)/g;
+    let match;
+    while ((match = regex.exec(rawStr)) !== null) {
+      const clean = match[0]
+        .slice(1, -1)
+        .replace(/\\([\s\S])/g, "$1")
+        .trim();
+      if (clean.length > 2 && /[a-zA-Z0-9]/.test(clean)) {
+        matches.push(clean);
+      }
+    }
+    return matches.join(" ");
+  } catch (e) {
+    return "";
+  }
+}
+
 export async function textFromResume(input, mimetype = "", filename = "") {
   let buffer;
   if (Buffer.isBuffer(input)) {
@@ -39,31 +60,43 @@ export async function textFromResume(input, mimetype = "", filename = "") {
   }
 
   const fn = (filename || "").toLowerCase();
+
   if (mimetype === "application/pdf" || fn.endsWith(".pdf")) {
-    const data = await pdf(buffer);
-    return data.text;
+    try {
+      const data = await pdf(buffer);
+      if (data && data.text && data.text.trim().length > 10) {
+        return data.text;
+      }
+    } catch (e) {
+      console.warn("pdf-parse error, trying fallback:", e.message);
+    }
+    const fallbackText = parseRawPdfText(buffer);
+    if (fallbackText && fallbackText.trim().length > 10) {
+      return fallbackText;
+    }
   }
+
   if (
     mimetype ===
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ||
     fn.endsWith(".docx")
   ) {
-    const result = await mammoth.extractRawText({ buffer });
-    return result.value;
-  }
-  if (mimetype === "text/plain" || fn.endsWith(".txt")) {
-    return buffer.toString("utf-8");
+    try {
+      const result = await mammoth.extractRawText({ buffer });
+      if (result && result.value && result.value.trim().length > 5) {
+        return result.value;
+      }
+    } catch (e) {
+      console.warn("mammoth error:", e.message);
+    }
   }
 
-  try {
-    const data = await pdf(buffer);
-    if (data.text) return data.text;
-  } catch {}
-  try {
-    const result = await mammoth.extractRawText({ buffer });
-    if (result.value) return result.value;
-  } catch {}
-  return buffer.toString("utf-8");
+  const rawUtf = buffer.toString("utf-8");
+  if (rawUtf && rawUtf.trim().length > 0) {
+    return rawUtf;
+  }
+
+  throw new Error("Could not extract readable text from document.");
 }
 
 function guessSocials(text) {

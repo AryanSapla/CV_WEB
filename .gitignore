@@ -3,3 +3,5 @@ dist/
 uploads/
 .env
 .DS_Store
+data/profile.local.json
+data/profile-export.json

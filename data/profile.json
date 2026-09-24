@@ -1,0 +1,25 @@
+{
+  "photoUrl": null,
+  "cvDownloadUrl": "/cv.pdf",
+  "data": {
+    "name": "",
+    "title": "",
+    "location": null,
+    "email": null,
+    "phone": null,
+    "linkedin": null,
+    "github": null,
+    "portfolio": null,
+    "yearsOfExperience": null,
+    "summary": {
+      "subtitle": null,
+      "text": null
+    },
+    "skills": [],
+    "experience": [],
+    "education": [],
+    "projects": [],
+    "certifications": [],
+    "languages": []
+  }
+}

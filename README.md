@@ -1,19 +1,47 @@
-# CV Extractor
+# Personal Professional Profile
 
-Upload a **resume** (PDF, DOCX, or TXT) and an optional **profile photo**. The app extracts structured data and displays it in a clean CV layout (contact info, skills, summary, work experience).
+A single-page portfolio site generated from structured CV data. Visitors see your professional profile immediately—no uploads, login, or ATS views.
 
-## Quick start
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173). The Vite dev server proxies API calls to the backend on port 3001.
+Open [http://localhost:5173](http://localhost:5173).
 
-## Better extraction (recommended)
+## Profile data
 
-Copy `.env.example` to `.env` and set `OPENAI_API_KEY`. Without it, the app uses basic text heuristics (works for simple resumes, less accurate for complex layouts).
+Content is served from **`data/profile.json`** via `GET /api/profile`.
+
+### Option A — From a saved browser export
+
+If you previously extracted a CV in this project:
+
+1. In the browser console on the old app:  
+   `copy(localStorage.getItem('cv_web_extracted_data'))`
+2. Paste into `data/profile-export.json`
+3. Run:
+
+```bash
+node scripts/import-browser-export.mjs
+```
+
+Put a headshot at `public/photo.jpg` and set `"photoUrl": "/photo.jpg"` in `data/profile.json`.  
+Add your PDF resume as `public/cv.pdf` for the Download CV button.
+
+### Option B — From a resume file (maintainer script)
+
+```bash
+node scripts/sync-profile.mjs path/to/resume.pdf --photo public/photo.jpg
+```
+
+Requires `OPENAI_API_KEY` in `.env` for best results (uses `server/extract.js`).
+
+### Option C — Vercel env
+
+Set `PROFILE_JSON` to the full JSON object (`{ "data": { ... }, "photoUrl", "cvDownloadUrl" }`).
 
 ## Production
 
@@ -22,4 +50,4 @@ npm run build
 npm start
 ```
 
-Serves the built frontend and API on port 3001 (set `PORT` to change).
+Deploy to Vercel with the included `api/profile.js` serverless route.
