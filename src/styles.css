@@ -1,0 +1,322 @@
+:root {
+  --teal: #008080;
+  --teal-dark: #006666;
+  --bg: #e8ecef;
+  --card: #fff;
+  --text: #333;
+  --muted: #666;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --font: "Source Sans 3", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  color: var(--teal-dark);
+}
+
+.app-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.upload-card {
+  background: var(--card);
+  padding: 1.75rem;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.upload-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.field-label {
+  font-weight: 600;
+}
+
+.file-name {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.photo-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.error {
+  color: #b00020;
+  margin: 0 0 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  padding: 0.65rem 1.25rem;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: #fff;
+  width: 100%;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--teal-dark);
+}
+
+.toolbar {
+  margin-bottom: 1rem;
+}
+
+.btn-secondary {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: var(--text);
+}
+
+.cv-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .cv-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+}
+
+.cv-sidebar {
+  padding: 0 0 1.25rem;
+  overflow: hidden;
+}
+
+.photo-wrap {
+  background: #f0f0f0;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.profile-photo.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cv-name {
+  margin: 1rem 1.25rem 0.75rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0 1.25rem 1.25rem;
+  padding: 0;
+  font-size: 0.92rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  color: var(--muted);
+}
+
+.contact-list svg {
+  flex-shrink: 0;
+  color: var(--teal);
+  margin-top: 2px;
+}
+
+.contact-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+.skills-block {
+  padding: 0 1.25rem;
+}
+
+.skills-block h3,
+.section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.skills-block h3 svg,
+.section h3 svg {
+  color: var(--teal);
+}
+
+.skills-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 0.2rem;
+}
+
+.skill-pct {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.skill-track {
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin-bottom: 0.65rem;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 2px;
+}
+
+.cv-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section {
+  padding: 1.25rem 1.5rem;
+}
+
+.section-sub {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.body-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.experience-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.job {
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+.job:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.job-title {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.job-dates {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.job-dates svg {
+  color: var(--teal);
+}
+
+.badge-current {
+  background: var(--teal);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+}
