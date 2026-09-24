@@ -1,25 +1,113 @@
 {
-  "photoUrl": null,
-  "cvDownloadUrl": "/cv.pdf",
+  "photoUrl": "/komal_katal.jpg",
+  "cvDownloadUrl": "/Komal_Katal_Resume.pdf",
   "data": {
-    "name": "",
-    "title": "",
-    "location": null,
-    "email": null,
-    "phone": null,
-    "linkedin": null,
+    "name": "Komal Katal",
+    "title": "Senior Service Delivery Manager | Enterprise Operations & SRE Governance",
+    "location": "Pune, Maharashtra, India",
+    "email": "komal2118katal@gmail.com",
+    "phone": "+91 7006703800",
+    "linkedin": "https://linkedin.com/in/komalkatal",
     "github": null,
     "portfolio": null,
-    "yearsOfExperience": null,
+    "yearsOfExperience": "13+ Yrs",
     "summary": {
-      "subtitle": null,
-      "text": null
+      "subtitle": "Results-driven Enterprise Operations and Service Delivery Leader",
+      "text": "Results-driven Enterprise Operations and Service Delivery leader with 13+ years of experience in SRE Governance, Program Management, and Strategic Account Management across complex, high-availability environments. Built a product support function from the ground up at Mastercard, mentoring three team members to collectively manage 80 white-label enterprise accounts across APAC, NA, and EU, delivering 90–93% CSAT and ~95% SLA adherence. Proven track record in driving Operational Resilience, Benefits Realization, and Customer Retention through structured PMO practices, RAID Management, and data-led service assurance. Brings deep, working fluency in AI-powered tools, using them daily to build processes that improve team efficiency and speed up decision-making in live service environments."
     },
-    "skills": [],
-    "experience": [],
-    "education": [],
-    "projects": [],
-    "certifications": [],
-    "languages": []
+    "skills": [
+      { "name": "SRE Governance & Reliability", "category": "Core Competencies", "level": 95 },
+      { "name": "Service Level Agreement (SLA) Management", "category": "Core Competencies", "level": 95 },
+      { "name": "Approval Rate Optimization & Root-Cause Analysis", "category": "Core Competencies", "level": 92 },
+      { "name": "Operational Resilience & Service Assurance", "category": "Core Competencies", "level": 90 },
+      { "name": "ITIL-Based Governance", "category": "Core Competencies", "level": 92 },
+      { "name": "Program Governance & PMO", "category": "Program & Portfolio", "level": 95 },
+      { "name": "Enterprise Portfolio Management", "category": "Program & Portfolio", "level": 90 },
+      { "name": "Demand & Vendor Management", "category": "Program & Portfolio", "level": 88 },
+      { "name": "Customer Retention & Revenue Protection", "category": "Strategic Account Mgmt", "level": 94 },
+      { "name": "B2B & Corporate Enterprise Sales", "category": "Strategic Account Mgmt", "level": 90 },
+      { "name": "AI-Driven Workflow Automation", "category": "AI & Innovation", "level": 92 },
+      { "name": "Process Simplification", "category": "AI & Innovation", "level": 90 },
+      { "name": "Performance Metrics & Data Analytics", "category": "Analytics", "level": 88 }
+    ],
+    "experience": [
+      {
+        "title": "Senior Service Delivery Manager, Global Payments (MPGS)",
+        "company": "Mastercard (CORE Payments)",
+        "location": "Pune, Maharashtra",
+        "startDate": "2023",
+        "endDate": null,
+        "description": "Owned and grew a $7–8 Mn global enterprise portfolio across 50+ merchants, driving retention, upsell, and cross-sell across Mastercard payment gateway, digital, and managed services products.",
+        "responsibilities": [
+          "Owned and grew a $7–8 Mn global enterprise portfolio across 50+ merchants, driving retention, upsell, and cross-sell across Mastercard payment gateway, digital, and managed services products.",
+          "Owned a quantified KPI scorecard and SRE governance framework, continuously optimizing SLA performance, platform availability, and service responsiveness, achieving ~95% SLA adherence and 90% incident non-recurrence across enterprise operations.",
+          "Established observability-led service assurance practices by tracking performance trends, failure signals, and VoC data to proactively identify risks and drive remediation before customer impact, reducing TAT by 15-20%.",
+          "Built and maintained an operational resilience model for platform operations, reducing first-contact resolution gaps by 8-15% through structured root cause analysis and preventive governance.",
+          "Developed in-depth, hands-on expertise in customer transaction approval rates, diagnosing decline patterns and working directly with cardholders and merchants on root-cause resolution, directly increasing approval rates and revenue for key enterprise accounts.",
+          "As an AI enthusiast, actively design and use AI-powered tools and automation in daily workflows from operational signal analysis to service delivery optimization.",
+          "Joined as one of the first two team members of a newly formed function; built the entire service delivery operating model from zero, defining PMO practices, RAID management protocols, executive reporting cadences, and cross-functional governance frameworks.",
+          "Mentored and developed three team members into the program governance model, scaling portfolio management capacity to serve 80 white-label enterprise accounts across APAC, NA, and EU with full benefits realization tracking against each account.",
+          "Scaled a premium managed services offering across APAC and NA for six strategic enterprise clients, driving $1.2M in annual revenue through structured renewal management and proactive customer success practices."
+        ]
+      },
+      {
+        "title": "Major / Senior Manager – Service Delivery & Operational Management",
+        "company": "Indian Army (Corps of Signals)",
+        "location": "Multiple Postings, India",
+        "startDate": "2013",
+        "endDate": "2023",
+        "description": "Owned large-scale IT service delivery and SRE governance across distributed, mission-critical enterprise environments, sustaining ~98–99% platform availability.",
+        "responsibilities": [
+          "Owned large-scale IT service delivery and SRE governance across distributed, mission-critical enterprise environments, sustaining ~98–99% platform availability and improving operational resilience and delivery consistency by 15–20%.",
+          "Standardised platform operations through documented, repeatable workflows and service assurance frameworks, reducing dependency on individual expertise and enabling scalable, audit-ready operations at command level.",
+          "Drove cross-functional delivery of complex digital transformation and automation programs, achieving ~95% on-time execution and stable post-launch operations through structured PMO governance.",
+          "Led large, cross-functional technical teams and vendor-led operations end-to-end, owning people, assets, and migration delivery, achieving 90–95% on-time delivery and 10–15% efficiency gains across the portfolio.",
+          "Awarded GOC-in-C Commendation Card (2019) for leading the transition to digitally enabled, paperless operational workflows at command level, improving coordination, reducing execution latency, and ensuring consistent service delivery."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma in Defence Management & Strategic Studies",
+        "institution": "University of Madras, Chennai",
+        "field": "Defence Management",
+        "dates": "2013",
+        "gpa": "Distinction"
+      },
+      {
+        "degree": "B.Tech – Electronics & Communication Engineering",
+        "institution": "Punjab Technical University",
+        "field": "Electronics & Communication",
+        "dates": "2007 - 2011",
+        "gpa": "First Class"
+      }
+    ],
+    "projects": [
+      {
+        "name": "Mastercard White-Label Platform Governance",
+        "description": "Scaled portfolio management capacity from zero to serve 80 white-label enterprise accounts across APAC, NA, and EU with full benefits realization tracking.",
+        "technologies": ["SRE Governance", "PMO", "RAID Management", "SLA Assurance"],
+        "link": null
+      },
+      {
+        "name": "AI-Powered Workflow & Signal Automation",
+        "description": "Designed and deployed AI-assisted tools in daily service operations, accelerating operational signal analysis and reducing live interaction dependency by 15–25%.",
+        "technologies": ["Generative AI", "Workflow Automation", "Python", "Observability"],
+        "link": null
+      }
+    ],
+    "certifications": [
+      { "name": "IT Service Management – ITIL 4", "issuer": "PeopleCert", "date": "2025" },
+      { "name": "Lean Six Sigma Black Belt", "issuer": "ISEL Global", "date": "2023" },
+      { "name": "AI Basics: Machine Learning", "issuer": "LinkedIn Learning", "date": "2026" },
+      { "name": "Generative AI for Product Managers", "issuer": "LinkedIn Learning", "date": "2025" },
+      { "name": "Quality Management for Operational Excellence", "issuer": "LinkedIn Learning", "date": "2025" },
+      { "name": "Project Management Specialization", "issuer": "Google / Coursera", "date": "2022" },
+      { "name": "Officers Advanced Technical Course", "issuer": "MCTE, Mhow", "date": "2018" }
+    ],
+    "languages": [
+      { "name": "English", "proficiency": "Full Professional / Native" },
+      { "name": "Hindi", "proficiency": "Native" }
+    ]
   }
 }
